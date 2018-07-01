@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hike Today</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="stylesheet" href="float-grid.css" type="text/css">
+</head>
+<body>  
+    <header role="banner" class="header">
+        <h1 class="row col-12">Hike Today</h1>
+        <h2 class="row col-12">Plan your next adventure</h2>
+        <legend>
+        <form action="#" class="searchForm row col-12">
+            <label for="location"></label>
+            <input type="text" name="location" placeholder="Where are you hiking?" id="location" class="location" aria-label="input your location" autofocus required>
+            <button type="submit" aria-label="search" class="submitButton">Let's Go!</button>
+        </form>
+        </legend>
+        <p class="row col-12">Get the best local hike recommendations, with current trail conditions, weather, and climate data, all in one place. With Hike Today it's easier than ever to get out and GO!</p>
+    </header>        
+    <main role="main">
+        <div class="weatherSection" id="weatherSection"></div>
+        <div class="localAirQuality" id="localAirQuality"></div>
+        <div class="hikesSection" id="hikesSection"></div>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="index.js"></script>
+</body>
+</html>
