@@ -5,24 +5,23 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Hike Today</title>
     <link rel="stylesheet" href="style.css" type="text/css">
-    <link rel="stylesheet" href="float-grid.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato|Raleway" rel="stylesheet">
 </head>
 <body>  
-    <header role="banner" class="header">
-        <h1 class="row col-12">Hike Today</h1>
-        <h2 class="row col-12">Plan your next adventure</h2>
-        <legend>
-        <form action="#" class="searchForm row col-12">
+    <header role="banner" class="header" id="startPage">
+        <h1>Hike Today</h1>
+        <h2 class="tag">Plan your next adventure</h2>
+        <legend class="legend">
+        <form action="#" class="searchForm">
             <label for="location"></label>
             <input type="text" name="location" placeholder="Where are you hiking?" id="location" class="location" aria-label="input your location" autofocus required>
-            <button type="submit" aria-label="search" class="submitButton">Let's Go!</button>
+            <button type="submit" aria-label="search" class="submitButton" id="submitButton">Let's Go!</button>
         </form>
         </legend>
-        <p class="row col-12">Get the best local hike recommendations, with current trail conditions, weather, and climate data, all in one place. With Hike Today it's easier than ever to get out and GO!</p>
+        <p>Get the best local hike recommendations, with current trail conditions, weather, and climate data, all in one place. With Hike Today it's easier than ever to get out and GO!</p>
     </header>        
-    <main role="main">
+    <main role="main"  class="container" id="container" hidden>
         <div class="weatherSection" id="weatherSection"></div>
-        <div class="localAirQuality" id="localAirQuality"></div>
         <div class="hikesSection" id="hikesSection"></div>
     </main>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>

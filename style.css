@@ -1,0 +1,117 @@
+* {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        outline: 0;
+    }
+
+html{
+	height: 100%;
+}
+
+body{
+	margin: 0px;
+	padding: 0px;
+	height: 100%;
+}
+
+h1, h2, h3 {
+	font-family: 'Lato', sans-serif;
+	text-align: center;
+}
+
+.header h1, .tag, h3, p{
+	color: white;
+}
+
+.header p{
+	margin-bottom: 10%;
+}
+
+.header h1{
+	font-size: 6em;
+	font-weight: lighter;
+	margin-top: 5%
+}
+
+
+p {
+	font-family: 'Raleway', sans-serif;
+	text-align: center;
+}
+
+.localWeather p, h1, h2, h3 {
+	color: black;
+}
+
+.trailInfo p {
+	color: black;
+}
+
+.searchForm{
+	text-align: center;
+}
+
+.legend{
+	min-width: 100%;
+}
+
+.location, .submitButton{
+	min-height: 80px;
+	text-align:center;
+	font-size: 1.5em;
+}
+
+.location {
+	min-width: 65%;
+}
+
+.submitButton{
+	min-width: 25%;
+}
+.header{
+	height: 100%;
+	background-image: url(https://images.unsplash.com/photo-1463567727315-4a5cc526b47c);
+	background-size: cover;
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.container {
+	display: grid;
+	grid-template-columns: 10% 30% auto 10%;
+	grid-template-rows: 20% 75% 5% ;
+}
+
+.weatherSection{
+	grid-column-start: 2;
+	grid-column-end:4;
+	grid-row-start:1;
+	grid-row-end: 1;
+	justify-self: center;
+	align-self: center;
+}
+
+.hikesSection{
+	grid-row-start: 2;
+	grid-row-end: 2;
+	grid-column-start: 2;
+	grid-column-end: 4;
+	justify-self: stretch;
+	align-self: stretch;
+}
+
+.trailImage{
+	display: inline-block;
+}
+
+img {
+	width: 100%;
+}
+
+.trailInfo{
+	display: inline-block;
+	margin: 10px 0px 10px 10px;
+}
