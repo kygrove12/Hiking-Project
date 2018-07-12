@@ -8,14 +8,12 @@ const openWeatherAPI = 'https://api.openweathermap.org/data/2.5/weather?appid=94
 function hikesTemplate(hike){
 	console.log ("hikesTemplate ran");
 	$('.hikesSection').append(`
-		<div class="trailImage">
-			<img src=${hike.imgSmall} alt="trail image">
-		</div>
+			<img class="trailImage" src=${hike.imgSmall} alt="trail image" onerror="this.src='https://images.unsplash.com/uploads/1412533519888a485b488/bb9f9777';">
 		<div class="trailInfo">
 			<h3 class="trailName"><a href=${hike.url} target="_blank">${hike.name}</a></h3>
 			<p>Distance: ${hike.length} mi</p>
             <p>Rating: ${hike.stars}&#9733;</p>
-            <p>Condition: ${hike.conditionStatus}; ${hike.conditionDetails}</p>
+            <!--<p>Condition: ${hike.conditionStatus}; ${hike.conditionDetails}</p>-->
 		</div>
 		<br/>
 	`);
@@ -85,8 +83,8 @@ function weatherDisplay(data){
 	console.log (data);
 	getHikes (data.coord.lat, data.coord.lon);
 	$(".weatherSection").html(weatherTemplate(data));
-	document.getElementById("startPage").hidden = true;
-  	document.getElementById("container").hidden = false;
+  	let newView = document.getElementById("weatherSection");
+  	newView.scrollIntoView(false);
 }
 
 function getLocalWeather(){
