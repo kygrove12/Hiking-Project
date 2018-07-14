@@ -35,6 +35,8 @@ function displayHikes(data){
 			hikesTemplate(trailsFound[i], trailImageArr[i]);
 		}
 	}
+	let newView = document.getElementById("weatherSection");
+  	newView.scrollIntoView(true);
 }
 
 function getHikes (lat, lon){
@@ -86,8 +88,7 @@ function weatherDisplay(data){
 	console.log (data);
 	getHikes (data.coord.lat, data.coord.lon);
 	$(".weatherSection").html(weatherTemplate(data));
-  	let newView = document.getElementById("weatherSection");
-  	newView.scrollIntoView(true);
+  	
 }
 
 function getLocalWeather(){
