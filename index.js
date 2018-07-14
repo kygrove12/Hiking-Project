@@ -5,15 +5,17 @@ const hikingProjectAPI = 'https://www.hikingproject.com/data/get-trails?maxDista
 const openWeatherAPI = 'https://api.openweathermap.org/data/2.5/weather?appid=94c87d2162df8af9977ccbd60872a522'
 
 
-function hikesTemplate(hike){
+
+function hikesTemplate(hike, image){
 	console.log ("hikesTemplate ran");
 	$('.hikesSection').append(`
-			<img class="trailImage" src=${hike.imgSmall} alt="trail image" onerror="this.src='https://images.unsplash.com/uploads/1412533519888a485b488/bb9f9777';">
+			<img class="trailImage" src=${image} alt="trail image" onerror="this.src='https://images.unsplash.com/uploads/1412533519888a485b488/bb9f9777';">
 		<div class="trailInfo">
 			<h3 class="trailName"><a href=${hike.url} target="_blank">${hike.name}</a></h3>
+			<p>${hike.summary}</p>
 			<p>Distance: ${hike.length} mi</p>
             <p>Rating: ${hike.stars}&#9733;</p>
-            <!--<p>Condition: ${hike.conditionStatus}; ${hike.conditionDetails}</p>-->
+            
 		</div>
 		<br/>
 	`);
@@ -24,12 +26,13 @@ function displayHikes(data){
 	console.log (data);
 	$('.hikesSection').html("");
 	let trailsFound = data.trails;
+	let trailImageArr = ['https://images.unsplash.com/uploads/1412533519888a485b488/bb9f9777','https://images.unsplash.com/photo-1436918671239-a2b72ace4880','https://images.unsplash.com/photo-1420802498636-9d647b43d2eb','https://images.unsplash.com/photo-1444583791700-0bd8d26df657','https://images.unsplash.com/uploads/1411949218166d2b71460/5f516109','https://images.unsplash.com/photo-1458170143129-546a3530d995','https://images.unsplash.com/photo-1476979735039-2fdea9e9e407','https://images.unsplash.com/photo-1519309621146-2a47d1f7103a','https://images.unsplash.com/photo-1525474089639-b5fff4440315','https://images.unsplash.com/photo-1526078192901-a5f41bf14eab'];
 	if (trailsFound.length === 0) {
 		$('.hikesSection').append(`<h2 class="hikesError">"Oh no! No hikes were found nearby. Try a different location."</h2>`)
 	}
 	else{
 		for (let i=0; i<trailsFound.length; i++){
-			hikesTemplate(trailsFound[i]);
+			hikesTemplate(trailsFound[i], trailImageArr[i]);
 		}
 	}
 }
@@ -62,7 +65,7 @@ function weatherTemplate (data) {
 	return `
 		<div class="localWeather">
 			<div class="userCity">
-                <h2>${data.name}</h2><img src="http://openweathermap.org/img/w/${data.weather[0].icon}.png" alt="weather icon" />
+                <h2>${data.name}</h2><img src="http://openweathermap.org/img/w/${data.weather[0].icon}.png" alt="weather icon" class="weatherIcon"/>
                 <p>${data.weather[0].description}</p>
             </div>
             <div class="cityTemp">
@@ -84,7 +87,7 @@ function weatherDisplay(data){
 	getHikes (data.coord.lat, data.coord.lon);
 	$(".weatherSection").html(weatherTemplate(data));
   	let newView = document.getElementById("weatherSection");
-  	newView.scrollIntoView(false);
+  	newView.scrollIntoView(true);
 }
 
 function getLocalWeather(){

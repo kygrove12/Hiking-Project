@@ -22,11 +22,9 @@ h1, h2, h3 {
 
 .header h1, .tag, h3, p{
 	color: white;
+	opacity: 1.0;
 }
 
-.header p{
-	margin-bottom: 10%;
-}
 
 .header h1{
 	font-size: 6em;
@@ -86,12 +84,17 @@ p {
 }
 
 .weatherSection{
-	grid-column-start: 2;
-	grid-column-end:4;
+	grid-column-start: 1;
+	grid-column-end:5;
 	grid-row-start:1;
 	grid-row-end: 1;
 	justify-self: center;
 	align-self: center;
+	padding-top: 2%;
+	padding-bottom: 2%;
+	background: rgb(238,242,242);
+	background: radial-gradient(circle, rgba(238,242,242,1) 0%, rgba(30,113,226,1) 100%);
+	width: 100%;
 }
 
 .hikesSection{
@@ -104,15 +107,32 @@ p {
 }
 
 .trailImage{
-	display: inline-block;
-	width: 30%;
+	display: block;
+	margin-top: 5%;
+	margin-bottom: 5%;
+	margin-left: auto;
+	margin-right: auto;
+	width: 70%;
 }
 
+.weatherIcon{
+	width: 10%;
+	display: block;
+	margin: auto;
+}
 img {
 	width: 100%;
 }
 
 .trailInfo{
-	display: inline-block;
 	margin: 10px 0px 10px 10px;
+}
+
+.weatherSection h2 {
+	font-size: 1.8em;
+}
+
+.description {
+	font-weight: bolder;
+	margin-bottom: 10%;
 }
