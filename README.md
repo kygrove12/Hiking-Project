@@ -7,14 +7,18 @@ Check out HikeToday here: https://kygrove12.github.io/Hiking-Project/
 
 Home Page:
 
+![Home Screen Image](https://github.com/kygrove12/Hiking-Project/blob/master/Screenshots/Hike%20Today%20Home%20Screen.PNG)
 
 Your Local Weather:
 
+![Weather Section Image](https://github.com/kygrove12/Hiking-Project/blob/master/Screenshots/Hike%20Today%20Weather.PNG)
 
 Example Trail Results:
 
+![Trail Results Image](https://github.com/kygrove12/Hiking-Project/blob/master/Screenshots/Hike%20Today%20Hikes.PNG)
 
 Each result links to REI's Hiking Project, for users who want more details about their selected trail:
 
+![More Info image](https://github.com/kygrove12/Hiking-Project/blob/master/Screenshots/Hike%20Today%20More%20Info.PNG)
 
 HikeToday was built by Kymberly Grove, using HTML, CSS, JavaScript and JQuery
