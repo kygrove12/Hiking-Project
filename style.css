@@ -144,6 +144,7 @@ img {
 .description {
 	font-weight: bold;
 	margin-bottom: 10%;
+	padding: 2%;
 }
 
 .shadowBox{

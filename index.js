@@ -1,9 +1,6 @@
 //API Endpoints//
-//for hikingProjectAPI, will need to add lat/lon to url based on user input
 const hikingProjectAPI = 'https://www.hikingproject.com/data/get-trails?maxDistance=15&key=200286023-b9ca1fa5443dea182f47afd678e98a0c'
-//if I can get lat/lon for hikingProjectAPI, can also be used to id location for openWeatherAPI
 const openWeatherAPI = 'https://api.openweathermap.org/data/2.5/weather?appid=94c87d2162df8af9977ccbd60872a522'
-
 
 
 function hikesTemplate(hike, image){
@@ -22,7 +19,6 @@ function hikesTemplate(hike, image){
 }
 
 function displayHikes(data){
-	console.log ("displayHikes ran");
 	console.log (data);
 	$('.hikesSection').html("");
 	let trailsFound = data.trails;
@@ -40,9 +36,6 @@ function displayHikes(data){
 }
 
 function getHikes (lat, lon){
-	console.log ("getHikes ran");
-	console.log ("lat is", lat);
-	console.log ("lon is", lon);
 	const settings = {
 		url: hikingProjectAPI,
 		data: {
@@ -61,8 +54,6 @@ function getHikes (lat, lon){
 	});
 }
 
-
-//retrieves and displays weather data
 function weatherTemplate (data) {
 	return `
 		<div class="localWeather">
@@ -71,9 +62,9 @@ function weatherTemplate (data) {
                 <p>${data.weather[0].description}</p>
             </div>
             <div class="cityTemp">
-                <p>L:${data.main.temp_min}<span>&#8457;</span></p>
-                <h2>${data.main.temp}<span>&#8457;</span></h2>
-                <p>H:${data.main.temp_max}<span>&#8457;</span>	
+                <p>L:${data.main.temp_min}&#8457;</p>
+                <h2>${data.main.temp}&#8457;</h2>
+                <p>H:${data.main.temp_max}&#8457;	
             </div>
             <div class="weatherConditions">
                 <p>Humidity: ${data.main.humidity}&#37;</p>
@@ -84,16 +75,13 @@ function weatherTemplate (data) {
 }
 
 function weatherDisplay(data){
-	console.log ("weatherDisplay ran");
 	console.log (data);
 	getHikes (data.coord.lat, data.coord.lon);
-	$(".weatherSection").html(weatherTemplate(data));
-  	
+	$(".weatherSection").html(weatherTemplate(data));	
 }
 
 function getLocalWeather(){
 	let place = $("#location").val();
-	console.log ("place is", place);
 
 	const settings = {
 		url: openWeatherAPI,
@@ -108,18 +96,16 @@ function getLocalWeather(){
 
 	$.ajax(settings)
 	.fail(function(){
-		console.log ("getLocalWeather failed");
-		$(".weatherSection").html(`<h2 class="weatherError">Please enter a valid location</h2>`)
+		$(".weatherSection").html(`<h2 class="weatherError">Please enter a valid location</h2>`);
+		let newView = document.getElementById("weatherSection");
+  		newView.scrollIntoView(true);
 	});
 }
 
-//runs the app
 function runHikeToday (){
 	$('.searchForm').submit(function(event){
 		event.preventDefault();
-		console.log ('runHikeToday ran');
 		getLocalWeather();
-		//getHikes(lat, lon)
 	})
 }
 
