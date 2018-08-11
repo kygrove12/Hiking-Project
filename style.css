@@ -162,7 +162,7 @@ img {
 
 .description {
 	font-weight: bold;
-	margin-bottom: 10%;
+	margin-bottom: 3%;
 	padding: 2%;
 }
 
@@ -179,4 +179,18 @@ img {
 
 a{
 	text-decoration: none;
+	padding:.1em;
+}
+
+.portfolioLink{
+	color: white;
+}
+.portfolioLink:hover,
+.portfolioLink:active{
+	border: .1em solid white;
+}
+
+footer{
+	font-size: .8em;
+	margin-bottom:1%;
 }
