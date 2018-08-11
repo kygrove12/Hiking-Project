@@ -13,6 +13,9 @@ body{
 	margin: 0px;
 	padding: 0px;
 	height: 100%;
+	background: #70A0B6;
+	background: linear-gradient(to top, #70A0B6, #FFFFFF) fixed;
+
 }
 
 h1, h2, h3 {
@@ -58,15 +61,32 @@ p {
 	text-align:center;
 	min-height: 3.5em;
 	font-size: 1em;
+	font-family: 'Lato', sans-serif;
+	font-weight: bold;
 }
 
 .location {
-	min-width: 65%;
+	min-width: 85%;
+	margin-bottom: 1%;
 }
 
 .submitButton{
 	min-width: 25%;
+	cursor: pointer;
+	color: white;
+  	border: .2em solid;
+  	border-radius: 5px;
+  	text-align: center;
+  	outline: none;
+  	background: transparent;
 }
+.submitButton:hover,
+.submitButton:active{
+	background-color: white;
+  	color: grey;
+  	border-color: white;
+}
+
 .header{
 	height: 100%;
 	background-image: url(https://images.unsplash.com/photo-1463567727315-4a5cc526b47c);
@@ -101,8 +121,6 @@ p {
 	align-self: center;
 	padding-top: 2%;
 	padding-bottom: 2%;
-	background: rgb(238,242,242);
-	background: radial-gradient(circle, rgba(238,242,242,1) 0%, rgba(30,113,226,1) 100%);
 	width: 100%;
 }
 
@@ -121,7 +139,8 @@ p {
 	margin-bottom: 5%;
 	margin-left: auto;
 	margin-right: auto;
-	width: 70%;
+	width: 55%;
+	max-height: 20em;
 }
 
 .weatherIcon{
@@ -154,3 +173,10 @@ img {
 	width: 100%;
 }
 
+.errorText{
+	color: white;
+}
+
+a{
+	text-decoration: none;
+}

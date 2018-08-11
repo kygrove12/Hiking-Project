@@ -15,7 +15,9 @@
         <h2 class="tag">Go have an adventure</h2>
         <legend class="legend">
         <form action="#" class="searchForm">
-            <label for="location"></label>
+            <label for="location" class="formLabel">
+                <div class="errorMessage"></div>
+            </label>
             <input type="text" name="location" placeholder="Where are you hiking?" id="location" class="location" aria-label="input your location" autofocus required>
             <button type="submit" aria-label="search" class="submitButton" id="submitButton">Let's Go!</button>
         </form>
@@ -25,7 +27,7 @@
     </div>     
     </div>
     </header>        
-    <main role="main"  class="container" id="container" aria-live="assertive" hidden>
+    <main role="main"  class="container" id="container" aria-live="assertive">
         <div class="weatherSection" id="weatherSection"></div>
         <div class="hikesSection" id="hikesSection"></div>
     </main>

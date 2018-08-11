@@ -6,14 +6,15 @@ const openWeatherAPI = 'https://api.openweathermap.org/data/2.5/weather?appid=94
 function hikesTemplate(hike, image){
 	console.log ("hikesTemplate ran");
 	$('.hikesSection').append(`
+		<a href=${hike.url} target="_blank">
 			<img class="trailImage" src=${image} alt="trail image" onerror="this.src='https://images.unsplash.com/uploads/1412533519888a485b488/bb9f9777';">
 		<div class="trailInfo">
-			<h3 class="trailName"><a href=${hike.url} target="_blank">${hike.name}</a></h3>
+			<h3 class="trailName">${hike.name}</h3>
 			<p>${hike.summary}</p>
 			<p>Distance: ${hike.length} mi</p>
-            <p>Rating: ${hike.stars}&#9733;</p>
-            
+            <p>Rating: ${hike.stars}&#9733;</p>   
 		</div>
+		</a>
 		<br/>
 	`);
 }
@@ -77,10 +78,11 @@ function weatherTemplate (data) {
 function weatherDisplay(data){
 	console.log (data);
 	getHikes (data.coord.lat, data.coord.lon);
-	$(".weatherSection").html(weatherTemplate(data));	
+	$(".weatherSection").html(weatherTemplate(data));
 }
 
 function getLocalWeather(){
+	console.log("getLocalWeather ran");
 	let place = $("#location").val();
 
 	const settings = {
@@ -96,9 +98,7 @@ function getLocalWeather(){
 
 	$.ajax(settings)
 	.fail(function(){
-		$(".weatherSection").html(`<h2 class="weatherError">Please enter a valid location</h2>`);
-		let newView = document.getElementById("weatherSection");
-  		newView.scrollIntoView(true);
+		$(".errorMessage").html(`<h2 class="errorText">Please enter a valid location</h2>`);
 	});
 }
 
